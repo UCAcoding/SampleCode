@@ -15,7 +15,7 @@
   1.cursor.h*
  
  
-''' 
+```
 #include <windows.h>
 #include <time.h>
 
@@ -27,7 +27,7 @@
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),Cur);}
 #define showcursor(bShow) { CONSOLE_CURSOR_INFO CurInfo = {20, bShow}; \
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE),&CurInfo); }
-'''
+```
 
 
 
