@@ -29,6 +29,20 @@
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE),&CurInfo); }
 ```
 
+ 사용예
+```
+#include <stdio.h>
+#include <cursor.h>
 
-
+int main()
+{
+	printf("3초 후에 화면을 지웁니다.\n");
+	delay(3000);
+	//화면 지움
+	clrscr();
+	//프롬프트 위치 이동 
+	gotoxy(20, 10);
+	printf("화면 중앙에 문자열을 출력합니다.\n");
+}
+```
 
