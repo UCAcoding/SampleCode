@@ -13,7 +13,7 @@
  *수업에쓸 샘플 코드들. 
  
   1.cursor.h*
- 
+ c언어에서 랜덤, 딜레이, 화면 지우기, gotoxy,커서 토글 
  
 ```
 #include <windows.h>
