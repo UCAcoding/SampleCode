@@ -15,8 +15,8 @@
 
  *cursor.h*
  
- ''' #include <windows.h>
-#include <time.h>
+ ''' #include <windows.h>'''
+'''#include <time.h>'''
 
 #define randomize() srand((unsigned)time(NULL))
 #define random(n) (rand() % (n))
