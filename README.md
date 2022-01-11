@@ -10,13 +10,14 @@
 
 #### ***샘플 코드 관련***
 
- 1. 수업에쓸 샘플 코드들. 
-
-
- *cursor.h*
+ *수업에쓸 샘플 코드들. 
  
- ''' #include <windows.h>'''
-'''#include <time.h>'''
+  1.cursor.h*
+ 
+ 
+''' 
+#include <windows.h>
+#include <time.h>
 
 #define randomize() srand((unsigned)time(NULL))
 #define random(n) (rand() % (n))
