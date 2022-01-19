@@ -46,3 +46,40 @@ int main()
 }
 ```
 
+
+
+2.컬러 문자 바꿔 주기 
+사용예 
+```
+
+int main( )
+{
+    HANDLE hStdOut = GetStdHandle( STD_OUTPUT_HANDLE );
+
+    PrintString(hStdOut, RED, "빨간색");
+    PrintString(hStdOut, BLUE, "파란색");
+    PrintString(hStdOut, PINK, "분홍색");
+    PrintString(hStdOut, WHITE, "하얀색");
+    PrintString(hStdOut, GREEN, "초록색");
+    PrintString(hStdOut, YELLOW, "노란색");
+    PrintString(hStdOut, SKYBLUE, "하늘색\n");
+
+    PrintString(hStdOut, RED_BG, "빨간배경");
+    PrintString(hStdOut, BLUE_BG, "파란배경");
+    PrintString(hStdOut, PINK_BG, "분홍배경");
+    PrintString(hStdOut, WHITE_BG, "하얀배경");
+    PrintString(hStdOut, GREEN_BG, "초록배경");
+    PrintString(hStdOut, YELLOW_BG, "노란배경");
+    PrintString(hStdOut, SKYBLUE_BG, "하늘배경\n");
+
+    PrintString(hStdOut, YELLOW_BG | PINK, "노란배경 빨간글씨");
+	PrintString(hStdOut, WHITE_BG | GREEN, "하얀배경 빨간글씨");
+	PrintString(hStdOut, GREEN_BG | WHITE, "초록배경 빨간글씨");
+	PrintString(hStdOut, BLUE_BG | RED, "파랑배경 빨간글씨");
+
+    CloseHandle(hStdOut);
+
+    return 0;
+}
+
+```
