@@ -127,6 +127,4 @@ int main()
 3. ```imageLayer.fadeIn(&imageLayer);``` 으로 fade in, <br>
     ```imageLayer.fadeOut(&imageLayer);```으로 fade out 할 수 있습니다.
 
----
-오류가 있거나 건의사항이 있을 시 issue 올려주세요.
 
