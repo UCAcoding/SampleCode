@@ -1,0 +1,77 @@
+from urllib import request
+from bs4 import BeautifulSoup
+from flask import Flask
+import time
+
+#웹서버 생성
+app = Flask(__name__)
+
+#전국 기상청 정보
+
+#부모
+class loca:
+    def set_start(self):
+        print("기상청 날씨 정보 보기")
+    def set_end(self):
+        print("날씨 정보 종료")
+    def num_game(self):
+        print("홀수 짝수 게임임")
+
+
+class game_lo(loca):
+    def __init__(self, num):
+        self.numb = num
+
+    def num_game(self):
+        print("홀수 짝수 게임입니다")
+        time.sleep(3)
+        if self.numb%2 == 0:
+            print("짝수입니다.")
+        else:
+            print("홀수 입니다.")
+
+
+class lo_end(game_lo):
+    ssa = game_lo(10)
+    def set_end(self):
+        key = input("숫자 하나를 입력하세요")
+        print("1.날시 정보 보기 \n 2. 정보 종료")
+        if key == 1:
+            print("기상청 날씨 정보 보기")
+            self.set_start()
+        elif key == 2:
+            print("날씨 정보 종료 하기")
+        elif key == 3:
+            print("홀짝 게임 실행시키기")
+            self.num_game()
+        else:
+            print("잘못된 값을 입력 하셨습니다")
+
+    def set_start(self):
+        for loca in soup.select("location"):
+            if loca.select_one("city").strin =="울산":
+                for ulsan in soup.select("울산"):
+                    if ulsan.select_one("wf").string == "맑음":
+                        print("울산의 날씨는 맑습니다.")
+            time.sleep(1)
+
+
+
+
+@app.route('/')
+def helo():
+    target = request.urlopen("https://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108")
+
+    soup = BeautifulSoup(target, "html.parser")
+    output = ""
+    for location in soup.select("location"):
+        output += "<h3>{}</h3>".format(location.select_one("city").string)
+        output += "날씨: {}<br/>".format(location.select_one("wf").string)
+        output += "최저/최고 기온 : {}/{}".format(
+            location.select_one("tmn").string,
+            location.select_one("tmx").string
+        )
+        output += "<hr>/"
+    return output
+
+app.run(host="127.0.0.1", port = 8080)
