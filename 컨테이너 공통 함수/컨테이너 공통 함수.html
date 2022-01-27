@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="ko-kr">
+<head>
+    <meta charset="utf-8">
+    <title>컨테이너의 공통 함수 </title>
+   
+<p><table class="w100">
+    <thead>
+      <tr class="box_purple">
+        <td>
+<p class="txts dm">함수 멤버</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dm">array&lt;T,N&gt;</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dm">vector&lt;T&gt;</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dm">deque&lt;T&gt;</p>
+        </td>
+      </tr>
+    </thead>
+&nbsp;
+    <tbody>
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">begin</span>() - 시작 반복자를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">end()</span> - 끝 반복자를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">rbegin()</span> - 역방향 시작 반복자를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">rend()</span> - 역방향 끝 반복자를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">cbegin()</span> - const 시작 반복자를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">cend()</span> - const 끝 반복자를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">crbegin()</span> - const 역방향 반복자를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">crend()</span> - const 역방향 반복자를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">assign()</span> - 내용을 새 원소들로 대체한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">operator=()</span> - 원소들을 타입이 같은 다른 컨테이너의 원소들이나 초기화 리스트로 대체한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">size()</span> - 원소들의 실제 개수(actual number)를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">max_size()</span> - 원소들의 최대 개수를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">capacity()</span> - 메모리에 할당된 원소들의 개수를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">empty()</span> - 원소가 하나도 없으면 true를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">resize()</span> - 원소들의 실제 개수를 변경한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">shrink_to_fit()</span> - 원소들의 실제 개수에 필요한 메모리를 줄인다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">front()</span> - 첫 번째 원소에 대한 참조를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">back()</span> - 마지막 원소에 대한 참조를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">operator[]()</span> - 원소를 인덱스로 접근한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">at()</span> - 원소를 인덱스로 접근하되 경계 검사를 한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">push_back()</span> - 순차열의 끝에 원소를 추가한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">insert()</span> - 지정된 위치에 원소 하나 또는 원소들을 추가한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">emplace()</span> - 지정된 위치에 내부에서 원소를 생성해 추가한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">emplace_back()</span> - 순차열의 끝에 내부에서 원소를 생성해 추가한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">pop_back()</span> - 순차열의 끝에서 원소를 제거한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">erase()</span> - 원소 하나 또는 범위로 지정된 원소들을 제거한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">clear()</span> - 모든 원소를 제거하고 size는 0이 된다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">swap()</span> - 두 컨테이너의 모든 원소를 교환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+      </tr>
+&nbsp;
+      <tr>
+        <td>
+<p class="txts dl"><span class="cd">data()</span> - 원소들을 담고 있는 내부 배열에 대한 포인터를 반환한다.</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">O</p>
+        </td>
+&nbsp;
+        <td>
+<p class="txts dl">-</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+&nbsp;</p>
+
+                
+</html>
