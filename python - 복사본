@@ -1,0 +1,36 @@
+# -*-codiing:utf-8 -*-
+import sys
+import threading
+
+#gui관련 라이브러리
+from PyQt5 import uic
+from PyQt5.QtCore import *
+from PyQt5.QtTest import QTest
+from PyQt5.QtWidgets import *
+
+#ui파일을 불러 온다.
+form_class = uic.loadUiType("gui.ui")[0]
+#from_class  = gui_ui다지인으로 만든 객체
+#ui파일은 xml 디자인 규약
+
+class MyWindos(QMainWindow, form_class):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        #self.setWindowFlags(Qt.FramelessWindowHint) #타이틀 바 지우기
+        #qt의 pushButton이라는 객채를 클릭했을때 연결할 함수
+        self.pushButton.clicked.connect(self.bt_00)
+        #푸쉬 버튼을 눌렀을때 bt_02함수를 실행시킬꺼야.
+        self.pushButton_2.clicked.connect(self.bt_02)
+
+    def bt_00(self):
+        print("출력 잘됨")
+
+    def bt_02(self):
+        print("출력 잘됨 2")
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MyWindos()
+    window.show()
+    sys.exit(app.exec_())
