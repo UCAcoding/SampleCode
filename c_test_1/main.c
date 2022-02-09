@@ -1,35 +1,36 @@
-//Ç¥ÁØ ÀÔÃâ·Â Çì´õÆÄÀÏ 
+//í‘œì¤€ ì…ì¶œë ¥ í—¤ë”íŒŒì¼ 
 #include <stdio.h>
-//¹®ÀÚ¿­ °ü·Ã Çì´õÆÄÀÏ
+//ë¬¸ìì—´ ê´€ë ¨ í—¤ë”íŒŒì¼
 #include <string.h>
-//¸Ş¸ğ¸® °ü·Ã Çì´õÆÄÀÏ
+//ë©”ëª¨ë¦¬ ê´€ë ¨ í—¤ë”íŒŒì¼
 #include <stdlib.h>
-//°¢Á¾ ÆíÀÇ À¯Æ¿¸®Æ¼
+//ê°ì¢… í¸ì˜ ìœ í‹¸ë¦¬í‹°
 #include "curser.h"
 
-//ÇÔ¼ö ¼±¾ğ, ÇÔ¼ö°¡ ¸ŞÀÎÇÔ¼ö°¡ ·ÎµåµÇ±âÀü¿¡ ¾Ë°Ô ÇÏ±â À§ÇØ¼­ 
+//í•¨ìˆ˜ ì„ ì–¸, í•¨ìˆ˜ê°€ ë©”ì¸í•¨ìˆ˜ê°€ ë¡œë“œë˜ê¸°ì „ì— ì•Œê²Œ í•˜ê¸° ìœ„í•´ì„œ 
 void switch_a();
 int if_a(int num);
-
+void while_a();
 
 
 int main() {
+
     switch_a();
 } 
 
 
 void switch_a() {
 
-    //intÇü º¯¼ö 
+    //intí˜• ë³€ìˆ˜ 
     int input;
 
-    ///if¹® ÇÔ¼ö °ü·Ã º¯¼ö 
+    ///ifë¬¸ í•¨ìˆ˜ ê´€ë ¨ ë³€ìˆ˜ 
     int if_return;
     int if_input;
     //////////////
 
-    printf("¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä\n");
-    
+    printf("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”\n");
+
     delay(1000);
     scanf("%d", &input);
 
@@ -38,15 +39,15 @@ void switch_a() {
 
 
     case 1:
-        printf("if¹® ÇÔ¼ö ½ÇÇà\n\n");
-        delay(1000);  //1ÃÊ ½¬°í 
-        clrscr();  //È­¸é Áö¿ì°í 
-        printf("¼ıÀÚ¸¦ ÇÏ³ª ÀÔ·ÂÇÏ¼¼¿ä. 1~10±îÁö \n");
+        printf("ifë¬¸ í•¨ìˆ˜ ì‹¤í–‰\n\n");
+        delay(1000);  //1ì´ˆ ì‰¬ê³  
+        clrscr();  //í™”ë©´ ì§€ìš°ê³  
+        printf("ìˆ«ìë¥¼ í•˜ë‚˜ ì…ë ¥í•˜ì„¸ìš”. 1~10ê¹Œì§€ \n");
         scanf("%d", &if_input);
 
-        if (0 >= input || 10 < input) {
-            printf("\n\nÀß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. \n");
-            printf("Ã³À½ºÎÅÍ ´Ù½Ã ÇØÁÖ¼¼¿ä \n");
+        if ((0 > if_input) || (10 < if_input)) {
+            printf("\n\nì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. \n");
+            printf("ì²˜ìŒë¶€í„° ë‹¤ì‹œ í•´ì£¼ì„¸ìš” \n");
         }
         else {
             if_return = if_a(if_input);
@@ -55,14 +56,15 @@ void switch_a() {
 
 
     case 2:
-        printf("while¹® ÇÔ¼ö ½ÇÇà\n\n");
-        delay(1000);  //1ÃÊ ½¬°í 
-        clrscr();  //È­¸é Áö¿ì°í 
+        printf("whileë¬¸ í•¨ìˆ˜ ì‹¤í–‰\n\n");
+        delay(1000);  //1ì´ˆ ì‰¬ê³  
+        clrscr();  //í™”ë©´ ì§€ìš°ê³  
+        while_a();
         break;
     case 3:
-        printf("for¹® ÇÔ¼ö ½ÇÇà\n\n");
-        delay(1000);  //1ÃÊ ½¬°í 
-        clrscr();  //È­¸é Áö¿ì°í 
+        printf("forë¬¸ í•¨ìˆ˜ ì‹¤í–‰\n\n");
+        delay(1000);  //1ì´ˆ ì‰¬ê³  
+        clrscr();  //í™”ë©´ ì§€ìš°ê³  
         break;
 
 
@@ -73,21 +75,23 @@ void switch_a() {
 }
 
 
-//num == if_inputÀÇ °ª
+
+
+//num == if_inputì˜ ê°’
 int if_a(int num) {
-    //num¿¡ ÀÔ·ÂµÈ ¼ö ¸¸Å­ °ø°£À» ÇÒ´ç. 
-    int* num_p = (int*)malloc(sizeof(int) * num);  //4¹ÙÀÌÆ® * num
+    //numì— ì…ë ¥ëœ ìˆ˜ ë§Œí¼ ê³µê°„ì„ í• ë‹¹. 
+    int* num_p = (int*)malloc(sizeof(int) * num);  //4ë°”ì´íŠ¸ * num
 
 
-    //ÇÒ´ç¿¡ ½ÇÆĞÇÏ¸é NULLÆ÷ÀÎÅÍ¸¦ ¹İÈ¯ 
+    //í• ë‹¹ì— ì‹¤íŒ¨í•˜ë©´ NULLí¬ì¸í„°ë¥¼ ë°˜í™˜ 
     if (num_p == NULL) {
-        printf(" ¸Ş¸ğ¸®°¡ ºÎÁ·ÇÕ´Ï´Ù. \n");
+        printf(" ë©”ëª¨ë¦¬ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤. \n");
         delay(500);
-        printf("°­Á¦ Á¾·á ÇÏ°Ú½À´Ï´Ù.\n");
+        printf("ê°•ì œ ì¢…ë£Œ í•˜ê² ìŠµë‹ˆë‹¤.\n");
         exit(1);
     }
 
-    printf("%d ¸¸Å­ ¼ıÀÚ¸¦ ÀÔ·ÂÀ» ÇØ ÁÖ¼¼¿ä. \n\n", num);
+    printf("%d ë§Œí¼ ìˆ«ìë¥¼ ì…ë ¥ì„ í•´ ì£¼ì„¸ìš”. \n\n", num);
 
     int total = 0;
 
@@ -97,8 +101,29 @@ int if_a(int num) {
         total += num_p[i];
     }
 
-    printf("ÀÔ·ÂÇÑ °ªÀÇ ÃÑÇÕÀº %d ÀÔ´Ï´Ù. \n", total);
-    printf("Æò±ÕÀº %.2lf ÀÔ´Ï´Ù. \n", (double)total / num);
+    printf("ì…ë ¥í•œ ê°’ì˜ ì´í•©ì€ %d ì…ë‹ˆë‹¤. \n", total);
+    printf("í‰ê· ì€ %.2lf ì…ë‹ˆë‹¤. \n", (double)total / num);
 
     free(num_p);
+}
+
+
+void while_a() {
+    int num_count = 0;
+    int num_input, num_cal;
+
+    printf("ìˆ«ì ì…ë ¥í•˜ì„¸ìš” :  ");
+    scanf("%d", &num_input);
+
+    num_cal = num_input;
+
+    //ìë¦¬ìˆ˜ ê³„ì‚°ê¸°
+    while (num_cal > 0) {
+        num_count++;
+        num_cal /= 10;
+
+    }
+    printf("ì…ë ¥í•œ ìˆ«ìëŠ” %d ìë¦¬ ìˆ«ì ì…ë‹ˆë‹¤. \n", num_count);
+
+
 }
