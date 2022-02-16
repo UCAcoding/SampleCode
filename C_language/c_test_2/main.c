@@ -1,17 +1,32 @@
-//í‘œì¤€ ì…ì¶œë ¥ í—¤ë”íŒŒì¼ printf, scanf, 
+//Ç¥ÁØ ÀÔÃâ·Â Çì´õÆÄÀÏ printf, scanf, 
 #include <stdio.h>
 #include <Windows.h>  //sleep, cls,
-//ê°ì¢… ìœˆë„ìš° ëª…ë ¹ì–´ 
-#include <stdlib.h>  //ë™ì  í• ë‹¹ 
+//°¢Á¾ À©µµ¿ì ¸í·É¾î 
+#include <stdlib.h>  //µ¿Àû ÇÒ´ç 
 //malloc, realloc, calloc
+#include "curser.h"
+
+
 
 void app_run();
 void if_a();
+void while_a();
+void for_a();
+void for_a_p(char** ary, int num);
+void struct_a();
+void print_list(struct address* plist);
 
+struct address {
+    char name[20]; //ÀÌ¸§À» ÀúÀåÇÒ ¸â¹ö
+    int age; //³ªÀÌ ÀúÀåÇÒ ¸â¹ö 
+    char tel[20];
+    char addr[80];
+
+};
 
 
 int main() {
-    
+
     while (1) {
         app_run();
     }
@@ -21,32 +36,36 @@ int main() {
 
 
 void app_run() {
-    //4ë°”ì´íŠ¸ 
-    int input; //ì •ìˆ˜í˜• ë³€ìˆ˜ 
-    
-    printf("ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”\n");
-    Sleep(1000); //1ì´ˆê°„ ì‰¬ì—ˆë‹¤.
-    printf("1~4ê¹Œì§€ ì…ë ¥í•˜ì„¸ìš”\n");
+    //4¹ÙÀÌÆ® 
+    int input; //Á¤¼öÇü º¯¼ö 
+
+    printf("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä\n");
+    Sleep(1000); //1ÃÊ°£ ½¬¾ú´Ù.
+    printf("1~4±îÁö ÀÔ·ÂÇÏ¼¼¿ä\n");
 
     scanf("%d", &input);
 
     switch (input)
     {
     case 1:
-        printf("ifë¬¸ í•¨ìˆ˜ì…ë‹ˆë‹¤.\n ");
-        if_a();  //
+        printf("if¹® ÇÔ¼öÀÔ´Ï´Ù.\n ");
+        if_a();  //¿Ï¼º 
         break;
     case 2:
-        printf("2ë²ˆ ì…ë‹ˆë‹¤. ");
+        printf("while ¹® ÇÔ¼öÀÔ´Ï´Ù. \n ");
+        while_a();
         break;
     case 3:
-        printf("3ë²ˆ ì…ë‹ˆë‹¤. ");
+        printf("for¹® ÇÔ¼öÀÔ´Ï´Ù. \n");
+        for_a();
         break;
     case 4:
-        printf("4ë²ˆ ì…ë‹ˆë‹¤. ");
+        printf("±¸Á¶Ã¼ ÀÔ´Ï´Ù. ");
+
+        struct_a();
         break;
-    default:  //ìœ„ caseì— ì—†ëŠ” ìˆ«ìë¥¼ ì…ë ¥í–ˆì„ë•Œ, defaultì•„ë˜ì˜ ì½”ë“œê°€ ì‹¤í–‰ëœë‹¤. 
-        printf("%dëŠ” ì˜ëª»ëœ ìˆ«ìì…ë‹ˆë‹¤.", input);
+    default:  //À§ case¿¡ ¾ø´Â ¼ıÀÚ¸¦ ÀÔ·ÂÇßÀ»¶§, default¾Æ·¡ÀÇ ÄÚµå°¡ ½ÇÇàµÈ´Ù. 
+        printf("%d´Â Àß¸øµÈ ¼ıÀÚÀÔ´Ï´Ù.", input);
 
         break;
     }
@@ -57,46 +76,173 @@ void app_run() {
 
 void if_a() {
 
-    
+
     int num;
 
-    printf("ë°°ì—´ì˜ í¬ê¸°ë¥¼ ì •í•˜ì„¸ìš” : ");
+    printf("¹è¿­ÀÇ Å©±â¸¦ Á¤ÇÏ¼¼¿ä : ");
     scanf("%d", &num);
 
-    //ì‰½ê²Œ ì–˜ê¸° í•´ì„œ ë°°ì—´ ë§Œë“œëŠ” ëª…ë ¹ì–´ 
-    int*pnum = (int*)malloc(sizeof(int) * num);
+    //½±°Ô ¾ê±â ÇØ¼­ ¹è¿­ ¸¸µå´Â ¸í·É¾î 
+    int* pnum = (int*)malloc(sizeof(int) * num);
     int total = 0;
-    
+
     for (int i = 0; i < num; i++) {
 
         scanf("%d", &pnum[i]);
         total += pnum[i];
     }
 
-    printf("ì´ì ì€ %dì´ê³  \n", total);
+    printf("ÃÑÁ¡Àº %dÀÌ°í \n", total);
 
     double avg = (double)total / num;
 
-    printf("í‰ê·  ê°’ì€ %.2lf", avg);
+    printf("Æò±Õ °ªÀº %.2lf", avg);
 
     if (avg > 80) {
 
-        printf("ì°¸ ì˜í–ˆì–´ìš”! ì§ì§ì§\n");
+        printf("Âü ÀßÇß¾î¿ä! Â¦Â¦Â¦\n");
 
     }
     else if (avg > 60) {
 
-        printf("ì¡°ê¸ˆ ì˜í–ˆì–´ìš”! ì§\n");
+        printf("Á¶±İ ÀßÇß¾î¿ä! Â¦\n");
 
     }
     else if (avg > 50) {
 
-        printf("ë” ì¡°ê¸ˆ ì˜í–ˆì–´ìš”!\n");
+        printf("´õ Á¶±İ ÀßÇß¾î¿ä!\n");
 
     }
     else {
-        printf("ë‚™ì œ!");
+        printf("³«Á¦!\n");
+        Sleep(1000);
+        printf("´Ù½Ã ÇÑ¹ø ±âÈ¸¸¦ ÁÖ¸¶ \n");
 
+        for (int i = 0; i < num; i++) {
+
+            scanf("%d", &pnum[i]);
+            total += pnum[i];
+        }
+
+        printf("ÃÑÁ¡Àº %dÀÌ°í \n", total);
+
+        double avg = (double)total / num;
+
+        printf("Æò±Õ °ªÀº %.2lf", avg);
+
+        if (avg < 50) {
+            printf("À¯±Ş");
+        }
+        else {
+            printf("ÀßÇß¾î~");
+
+        }
+
+    }
+
+    //»ç¿ëÀÌ ³¡³­ ¹è¿­Àº µ¿Àû ÇÒ´ç ÇØÁ¦, **
+    free(pnum);
+}
+
+void while_a() {
+
+    int num;
+    int input;
+
+    //¼ıÀÚ ¼¯±â
+    randomize();
+
+    //while(1)¹«ÇÑ ¹İº¹ 
+    while (1) {
+        //0~100±îÁöÀÇ ¼ıÀÚÁß¿¡ ·£´ıÀ¸·Î ÇÏ³ª¸¦ num¿¡ ³Ö´Â´Ù. 
+         num = random(100)+1;
+         //ÀÚµ¿ ÁÙ¹Ù²Ş(¿£ÅÍ) µÇ´Â Ãâ·Â ¸í·É¾î 
+         puts("³»°¡ »ı°¢ÇÑ ¼ıÀÚ ÇÏ³ª¸¦ ¸ÂÃçºÁ~~¿¡º§·¼·¹");
+         
+         //while°ú ¿Ïº®È÷ °°Àºµ¥, ´Ü ÇÏ³ª ´Ù¸¥Á¡Àº, whileÀº Á¶°ÇÀÌ °ÅÁşÀÌ¸é
+         //½ÇÇàÀÌ µÇÁö ¾Ê´Â ¹İ¸é, do~while¹®Àº 1¹øÀº ¹«Á¶°Ç ½ÇÇàÀÌ µË´Ï´Ù. 
+         do {
+             printf("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä. ³¡³¯¶§´Â 999ÀÔ·Â : ");
+             scanf("%d", &input);
+
+             if (input == 999) {
+                 puts("3ÃÊÈÄ ÇÁ·Î±×·¥À» Á¾·á ÇÕ´Ï´Ù.");
+                 Sleep(3000);
+                 exit(0); //ÇÁ·Î±×·¥ Á¾·á ¸í·É¾î 
+                 //while_a ÇÔ¼ö¸¦ Á¾·á ÇÏ°í ½ÍÀ¸¸é return 
+             }
+             if (input == num) {
+                 puts("Â¥¶óÀÜ!!\n");
+                 puts("¸ÂÃè½À´Ï´Ù.");
+             }
+             else if (input > num) {
+                 printf("ÀÔ·ÂÇÑ ¼ıÀÚ°¡ ³Ê¹« Å®´Ï´Ù.\n");
+             }
+             else {
+
+                 printf("ÀÔ·ÂÇÑ ¼ıÀÚ°¡ ³Ê¹« ÀÛ½À´Ï´Ù.\n");
+             }
+
+
+         } while (input != num);
+
+
+
+    }
+
+
+
+
+
+}
+
+
+
+
+void for_a() {
+
+    //¹®ÀÚ 2Â÷¿ø ¹è¿­ == 
+    char* pary[] = { "banana", "apple", "tiger" };
+    char* ppary[] = { "aaa", "bbb","cccc","ddd", "eeee", "fffff" };
+
+    for_a_p(pary, 3);
+    printf("µÎ¹øÂ° \n");
+    for_a_p(ppary, 6);
+}
+
+void for_a_p(char** ary, int num) {
+
+    for (int i = 0; i < num; i++) {
+
+        printf("%s \n", ary[i]);
+    }
+
+}
+
+
+
+void struct_a() {
+    //±¸Á¶Ã¼ ¹è¿­ ¼±¾ğ 
+    struct address list[5] = {  //1Â÷¿ø ¹è¿­ 
+        //ÀÌ¸§   ³ªÀÌ    ÀüÈ­¹øÈ£    ÁÖ¼Ò 
+        {"ÀÌÀÌÀÌ", 10, "111-1111", "¿ï»ê ¾îµğ"},
+        {"»ïÀÌÀÌ", 20, "211-1111", "¾ç»ê ¾îµğ"},
+        {"»çÀÌÀÌ", 30, "311-1111", "¼­»ê ¾îµğ"},
+        {"¿ÀÀÌÀÌ", 40, "411-1111", "Àú»ê ¾îµğ"},
+        {"À°ÀÌÀÌ", 50, "511-1111", "¿ì¸®»ê ¾îµğ"}
+    };
+
+
+    print_list(list);
+}
+
+                              //1Â÷¿ø Æ÷ÀÎÅÍ°í Æ÷ÀÎÅÍ´Â 4¹ÙÀÌÆ®
+void print_list(struct address* plist) {
+
+    for (int i = 0; i < 5; i++) {
+
+        printf("%10s%5d%15s%20s \n", (plist+i)->name, (plist + i)->age,
+            (plist+i)->tel, (plist + i)->addr );
     }
 
 
